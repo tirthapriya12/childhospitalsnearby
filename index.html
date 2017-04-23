@@ -13,25 +13,27 @@
   <body>
 
     <section class="container-fluid map-body"> 
-
+      
     <!--map container-->
-      <section class="col-md-7 map-inner-body">
+      <section class="col-md-7 col-xs-12 map-inner-body">
 
         <div id="map"></div>
 
       </section>
 
       <!--suggestion tab container-->
-      <section class="col-md-4">
+      <section class="col-md-4  col-xs-12 right ">
 
         <div id="suggestion"></div>
         <div id='dvPanel'></div>
 
       </section>
-
+        
     </section>
+    <br/>
 
-    <section class="row manual-panel">
+    <section class="container-fluid"> 
+    <section class="  row manual-panel">
 
       <div class="alert alert-info">
       <strong>Attention!</strong> If the location being shown is not accurate please prefer entering manually ! if that helps ...
@@ -75,10 +77,12 @@
 
         <button class="btn btn-info" id="submit" >Submit</button>
         -->
+        </section>
     </section>  
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeFmD32XyUjXxokEexMT9JfZ3uY6zSSFY&callback=initMap&libraries=places,visualization" async
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3wzyVBSujdokt4YclYkdpNu-624CjFN4&callback=initMap&libraries=places,visualization" async
     defer></script>
+    <!--alternative API key  AIzaSyB3wzyVBSujdokt4YclYkdpNu-624CjFN4  - AIzaSyAeFmD32XyUjXxokEexMT9JfZ3uY6zSSFY -AIzaSyAgIx2JNU4r5fefIkwq3QEpRdCIp8QHOSs   -->
     <script src="map_script.js"></script>
   </body>
 
