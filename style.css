@@ -1,0 +1,49 @@
+#map {
+      height: 90%;
+      margin: 2%;
+     
+    }
+    
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    .map-body{
+
+        height: 60%;
+
+    }
+
+    .map-inner-body{
+
+        height: 100%;
+
+    }
+    .manual-panel{
+
+      margin: 2%;
+    }
+
+    #alterLocation
+    {
+
+      width: 40%;
+    }
+
+    .pac-container {
+    background-color: #FFF;
+    z-index: 20;
+    position: fixed;
+    display: inline-block;
+    float: left;
+}
+.modal{
+    z-index: 20;   
+}
+.modal-backdrop{
+    z-index: 10;        
+}​
