@@ -74,3 +74,23 @@
 .modal-backdrop{
     z-index: 10;        
 }​
+
+ 
+@media only screen and (max-width : 990px)
+{
+    .map-body
+     {
+      margin-top: 2%;
+      height: 150vh;
+    }
+
+.map-inner-body {
+    height: 50%;
+  }
+
+  .right {
+    overflow-y: auto;
+    height: 54%;
+  }
+
+}
