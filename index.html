@@ -1,74 +1,91 @@
-  <!DOCTYPE html>
-  <html>
-  <head>
-    <title>Nearby Hospitals</title>
+<!DOCTYPE html>
+<html>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
-  <body>
+<head>
+  <title>Nearby Hospitals</title>
 
-    <section class="container-fluid map-body"> 
-      
-    <!--map container-->
-      <section class="col-md-7 col-xs-12 map-inner-body">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
-        <div id="map"></div>
-
-      </section>
-
-      <!--suggestion tab container-->
-      <section class="col-md-4  col-xs-12 right ">
-
-        <div id="suggestion"></div>
-        <div id='dvPanel'></div>
-
-      </section>
+<body>
+  <header>
+    <span style="font-size:30px;cursor:pointer" class="open-btn" onclick="openNav()">&#9776;</span>
+    <div class="alert alert-info">
+        <strong>Attention!</strong> If the location being shown is not accurate please prefer entering manually ! if that
+        helps ...
         
-    </section>
-    <br/>
-
-    <section class="container-fluid"> 
-    <section class="  row manual-panel">
-
-      <div class="alert alert-info">
-      <strong>Attention!</strong> If the location being shown is not accurate please prefer entering manually ! if that helps ...
       </div>
-
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Correct Your location</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+      <button type="button" style="margin-right: 1%;" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Correct Your location</button>
     
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+  </header>
 
-          <h4 class="modal-title"><label>Manually  enter your location</label>
-        </h4>
-        </div>
+  <div id="side_bar" class="sidenav">
+   <!-- <span class="closebtn" onclick="closeNav()">&times;</span> -->
+  
+    <div id='dvPanel'>
 
-        <div class="modal-body">
-
-        <input type="text" id="alterLocation" placeholder="Manually  enter your location" name="Manual location">
-        <br/><br/>
-          <button class="btn btn-info" id="submit" >Get Location</button>
-
-        </div>
-        
-      </div>
-      
     </div>
+
   </div>
 
+
+  <section class="container-fluid map-body">
+
+    <!--map container-->
+    <section class="col-md-9 col-xs-12 map-inner-body">
+
+      <div id="map"></div>
+
+    </section>
+
+    <!--suggestion tab container-->
+    <section class="col-md-3  col-xs-12 right ">
+
+      <div id="suggestion"></div>
+
+    </section>
+
+  </section>
+  <br/>
+
+  <section class="container-fluid">
+    <section class="  row manual-panel">
+
       
-     <!-- <div>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+              <h4 class="modal-title"><label>Manually  enter your location</label>
+              </h4>
+            </div>
+
+            <div class="modal-body">
+
+              <input type="text" id="alterLocation" placeholder="Manually  enter your location" name="Manual location">
+              <br/><br/>
+              <button class="btn btn-info" id="submit">Get Location</button>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- <div>
       <label>Manually  enter your location</label>
         <input type="text" id="alterLocation" placeholder="Manually  enter your location" name="Manual location">
 
@@ -77,13 +94,14 @@
 
         <button class="btn btn-info" id="submit" >Submit</button>
         -->
-        </section>
-    </section>  
+    </section>
+  </section>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3wzyVBSujdokt4YclYkdpNu-624CjFN4&callback=initMap&libraries=places,visualization" async
-    defer></script>
-    <!--alternative API key AIzaSyBJqiMmeBTiDjgPoxo3JfxpjbPikSrFglk  AIzaSyB3wzyVBSujdokt4YclYkdpNu-624CjFN4  - AIzaSyAeFmD32XyUjXxokEexMT9JfZ3uY6zSSFY -AIzaSyAgIx2JNU4r5fefIkwq3QEpRdCIp8QHOSs   -->
-    <script src="map_script.js"></script>
-  </body>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3wzyVBSujdokt4YclYkdpNu-624CjFN4&callback=initMap&libraries=places,visualization"
+    async defer></script>
+  <!--alternative API key AIzaSyBJqiMmeBTiDjgPoxo3JfxpjbPikSrFglk  AIzaSyB3wzyVBSujdokt4YclYkdpNu-624CjFN4  - AIzaSyAeFmD32XyUjXxokEexMT9JfZ3uY6zSSFY -AIzaSyAgIx2JNU4r5fefIkwq3QEpRdCIp8QHOSs   -->
+  <script src="map_script.js"></script>
+  <script src="stylescript.js"></script>
+</body>
 
-  </html>
+</html>
