@@ -17,23 +17,32 @@
 
     .active_suggest{
 
-      background-color: aliceblue;
-    border: 3px solid #54a599 !important ;
-    border-radius: 3%;
+      background-color: #576a96;
+      border: 3px solid #311a50 !important;
+      border-radius: 3%;
+      color: #eee;
+      transition: all 0.2s;
+    }
 
+    .active_suggest:hover {
+       transform: scale(1.05);
+       cursor: pointer;
     }
 
     .suggest{
 
           margin-bottom:2%;
-           display:inline-block;
-            width:100%; 
-            word-wrap : break-word;
+          display:inline-block;
+          width:100%; 
+          word-wrap : break-word;
           border: 2px solid #576a96;
           padding: 1%;
-
+          transition: all 0.2s;
     }
-
+    .suggest:hover{
+          transform:scale(1.05);
+          cursor:pointer;
+    }
     .adp{
       background-color: #eee;
     }
@@ -120,6 +129,7 @@
           border: none;
           background: rgb(49, 26, 80);
           margin-top: 0%;
+          padding-right: 0.5%;
           height: 95vh;
           width: 0%;
           overflow: hidden;
@@ -182,7 +192,7 @@
 }
 .modal-backdrop{
     z-index: 10;        
-}​
+}â
 {
 
 }

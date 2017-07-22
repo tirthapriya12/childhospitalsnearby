@@ -1,4 +1,3 @@
-
 var source = { lat: 0, lng: 0 },
   map, markers = [], geocoder, service, places = [], listeners = [], directionsDisplayerarray = [];
 var infowindow;
@@ -24,7 +23,7 @@ function initMap() {
   //on window load , load map and userlocation etc
   google.maps.event.addDomListener(window, 'load', function () {
 
-    attachAutocomplete(); // attaches auto complete to the correct llocation modal input type text
+    attachAutocomplete(); // attaches auto complete to the correct location modal input type text
 
 
     document.getElementById('submit').addEventListener('click', initialiseSubmit); // on click to modal submit initialise map again 
@@ -69,7 +68,7 @@ function initMap() {
 //get user location function def
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition, errorCallBack, { enableHighAccuracy: true });
+    navigator.geolocation.getCurrentPosition(showPosition, errorCallBack, { enableHighAccuracy: true });
   }
   else {
     alert('Your Device does not support geolocation ');
@@ -180,17 +179,17 @@ function clearMap() {
 function performPlaceSearch() {
 
 //request object that contains the search query 
-  var request = {
+  var request_doc = {
     location: source,
     radius: '30000',
     query: "children's hospital"
   }; 
+  
 
 
   service = new google.maps.places.PlacesService(map);
-  service.textSearch(request, performPlaceSearchcallback); // performs search 
-
-
+  service.textSearch(request_doc, performPlaceSearchcallback); // performs search 
+  
 
 }
 
@@ -200,13 +199,15 @@ function performPlaceSearchcallback(result, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < result.length; i++) {
 
-      if (result[i].formatted_address.indexOf('India') > -1) {
-
+      if (result[i].formatted_address.indexOf('India') > -1 ) {
+         if(result[i].formatted_address.indexOf('United') < 0) 
+       { 
         places.push(result[i]); //pushing the result in an array for future use 
 
         console.log(result[i]);
-        createMarker(result[i],i);  // creates markers for the searched hospitals 
-
+        createMarker(result[i],i);  // creates markers for the searched hospitals
+ 
+       }
       }
 
 
@@ -254,7 +255,7 @@ function attachListner(marker, result, i) {
   });
 
 
-  listeners.push(listener); // collecting all listeners
+  listeners.push(listener); // collecting mouseover listener
 
   //on mouse leave close pop up 
   listener = google.maps.event.addListener(marker, 'mouseout', function () {
@@ -272,7 +273,8 @@ function attachListner(marker, result, i) {
     removePrevDirection();
 
     directionShow(result);
-
+     if(!isOpen && !isMobile.any())
+     { openNav();  }
     //highlight active selected element on suggestion div
     var count=parseInt(this.customInfo);
     console.log(count);
@@ -286,7 +288,7 @@ function attachListner(marker, result, i) {
 
       $(".suggest").eq(count).toggleClass( "active_suggest" );
       $("#suggestion").animate({scrollTop: suggest_class[count].offsetTop-15 }, 700, 'swing');
-
+     //end of highlighting code
   });
 
 }
